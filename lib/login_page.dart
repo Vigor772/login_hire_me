@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'package:provider/provider.dart';
+import 'package:login_pages_etc/sign_up.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
-  _LoginPageState createState() => _LoginPageState();
+ State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -60,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
                     child: ElevatedButton(
                       onPressed: () {
-                        var email = userController.text.trim();
+                        var username = userController.text.trim();
                         var password = passwordController.text.trim();
  
                       },
@@ -73,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                     )),
                 InkWell(
                   onTap: () {
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUp(),));
                   },
                   child: const Text("Don't have account yet? Register now!",
                       style: TextStyle(fontSize: 15, color: Colors.black)),
